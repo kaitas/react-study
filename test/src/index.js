@@ -4,10 +4,15 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+const name = {
+  firstName: 'Akihiko',
+  lastName: 'SHIRAI'
+}
+
 function Hello(){
   return(
     <div>
-      <h1>こんにちわ＝^_^＝</h1>
+      <h1>こんにちわ { name.firstName + " "+  name.lastName } です ＝^_^＝</h1>
       <p>Helloコンポーネントから書いています</p>
       <p>ReactJSから書くJSXには一つの要素しか含むことができない。</p>
     </div>
