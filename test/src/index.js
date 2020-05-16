@@ -9,6 +9,7 @@ function Hello(){
     <div>
       <h1>こんにちわ＝^_^＝</h1>
       <p>Helloコンポーネントから書いています</p>
+      <p>ReactJSから書くJSXには一つの要素しか含むことができない。</p>
     </div>
 
   );
