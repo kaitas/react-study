@@ -4,8 +4,18 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+function Hello(){
+  return(
+    <div>
+      <h1>こんにちわ＝^_^＝</h1>
+      <p>Helloコンポーネントから書いています</p>
+    </div>
+
+  );
+}
+
 ReactDOM.render(
-  <h1>こんにちわ！</h1>,
+  <Hello />,
   document.getElementById('root')
 );
 
