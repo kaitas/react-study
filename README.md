@@ -88,7 +88,35 @@ v15.5以降は別ライブラリになっているのでインポートする。
 
 `` import PropTypes from 'prop-types';``
 
+
+型チェック（この場合は`string`）を無視してコンポーネントに値を渡しても、（ビルド時にエラーは出ないが）検証時に `string` ではないことから、コンソールに<span style="color: red; "> `warnings`</span> が出る。
+
+値を必ず要求する場合、
+
 ```
+Hello.propTypes = {
+  name: PropTypes.string.isRequired
+}
+```
+
+省略時のデフォルト値を設定する場合（ライブラリの`import`は不要）。
+
+```
+Hello.defaultProps = {
+  name : 'デフォルトの名前'
+}
+```
+
+となる。関数やクラスの宣言の後に持ってくるかどうかはどちらでも動くみたいだけど、気持ち悪いので上にもっていったほうがいいかもしれない。
+
+```
+Hello.propTypes = {
+  name: PropTypes.string
+}
+Hello.defaultProps = {
+  name : 'デフォルトの名前'
+}
+
 function Hello(props){
   return(
     <section>
@@ -97,12 +125,6 @@ function Hello(props){
     </section>
 
   );
-}
-Hello.propTypes = {
-  name: PropTypes.string
-}
-Hello.defaultProps = {
-  name : 'デフォルトの名前'
 }
 
 function Message(){
@@ -125,25 +147,4 @@ class Morning extends React.Component {
   }
 }
 ```
-
-型チェック（この場合は`string`）を無視してコンポーネントに値を渡しても、（ビルド時にエラーは出ないが）検証時に `string` ではないことから、コンソールに<span style="color: red; "> `warnings`</span> が出る。
-
-値を必ず要求する場合、
-
-```
-Hello.propTypes = {
-  name: PropTypes.string.isRequired
-}
-```
-
-省略時のデフォルト値を設定する場合（ライブラリの`import`は不要）。
-
-```
-Hello.defaultProps = {
-  name : 'デフォルトの名前'
-}
-```
-
-となる。関数やクラスの宣言の後に持ってくるかどうかはどちらでも動くみたいだけど、気持ち悪いので上にもっていったほうがいいかもしれない。
-
 
