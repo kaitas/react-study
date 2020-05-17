@@ -5,6 +5,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import PropTypes from 'prop-types';
 
+Hello.propTypes = {
+  name: PropTypes.string
+}
+Hello.defaultProps = {
+  name : 'デフォルトの名前'
+}
+
 function Hello(props){
   return(
     <section>
@@ -13,12 +20,6 @@ function Hello(props){
     </section>
 
   );
-}
-Hello.propTypes = {
-  name: PropTypes.string
-}
-Hello.defaultProps = {
-  name : 'デフォルトの名前'
 }
 
 function Message(){
@@ -40,6 +41,7 @@ class Morning extends React.Component {
     )
   }
 }
+
 ReactDOM.render(
   <Message />,
   document.getElementById('root')

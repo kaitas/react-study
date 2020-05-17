@@ -1,13 +1,15 @@
 # react-study
 
-## React入門
+## React導入
 
+Visual Studio Code での環境構築。``node.js`` はインストール済み。
 
 1. `npm install -g create-react-app`: Facebook製のReactアプリのスケルトン
 1. `create-react-app test` : test プロジェクトの作成
 1. `cd test` : test ディレクトリに移動
 1. `npm start` : ブラウザ内でアプリが確認できる（http://localhost:3000）
 1. その後は `/test/index.js` などを保存すると自動でブラウザが更新される
+
 
 ## 変数宣言
 
@@ -51,16 +53,19 @@ JSXの変数名は基本はすべて ``lowerCamelCase`` 形式で書くが、 ``
 ## クラス・コンポーネント
 
 クラス定義を書く
-`  class Morning extends React.Component {
-`   render() {
-`     return (
-`       <section><h1>おはようございます</h1><p>Morning Component</p></section>
-`     )
-`   }
-` }
+```
+class Morning extends React.Component {
+  render() {
+    return (
+      <section><h1>おはようございます</h1><p>Morning Component</p></section>
+    )
+  }
+}
+```
 
 ## コンポーネントへの変数渡し
 
+```
 function Hello(props){
   return(
     <section>
@@ -70,6 +75,7 @@ function Hello(props){
 
   );
 }
+```
 
 render関数では ``   <Hello name="白井暁彦" />, `` という感じで受け渡す 。
 
@@ -83,12 +89,44 @@ v15.5以降は別ライブラリになっているのでインポートする。
 `` import PropTypes from 'prop-types';``
 
 ```
+function Hello(props){
+  return(
+    <section>
+      <h1>こんにちわ {props.name} さん</h1>
+      <div>Helloコンポーネント</div>
+    </section>
+
+  );
+}
 Hello.propTypes = {
   name: PropTypes.string
 }
+Hello.defaultProps = {
+  name : 'デフォルトの名前'
+}
+
+function Message(){
+  return(
+    <section>
+      <Hello />
+      <Hello name={10} />
+      <Hello name={true} />
+      <div>Messageコンポーネント</div>
+    </section>
+
+  );
+}
+//Class component
+class Morning extends React.Component {
+  render() {
+    return (
+      <section><h1>おはようございます</h1><p>Morning Component</p></section>
+    )
+  }
+}
 ```
 
-型チェック（この場合は`string`）を無視してコンポーネントに値を渡しても、（ビルド時にエラーは出ないが）検証時に `string` ではないことから、コンソールに `warning` が出る。
+型チェック（この場合は`string`）を無視してコンポーネントに値を渡しても、（ビルド時にエラーは出ないが）検証時に `string` ではないことから、コンソールに<span style="color: red; "> `warnings`</span> が出る。
 
 値を必ず要求する場合、
 
@@ -105,4 +143,7 @@ Hello.defaultProps = {
   name : 'デフォルトの名前'
 }
 ```
+
+となる。関数やクラスの宣言の後に持ってくるかどうかはどちらでも動くみたいだけど、気持ち悪いので上にもっていったほうがいいかもしれない。
+
 
