@@ -4,9 +4,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-function Hello(){
+function Hello(props){
   return(
     <section>
+      <h1>こんにちわ {props.name} さん</h1>
       <div>Helloコンポーネント</div>
     </section>
 
@@ -22,7 +23,7 @@ class Morning extends React.Component {
   }
 }
 ReactDOM.render(
-  <Morning />,
+  <Hello name="白井暁彦" />,
   document.getElementById('root')
 );
 

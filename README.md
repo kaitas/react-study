@@ -59,4 +59,16 @@ JSXの変数名は基本はすべて ``lowerCamelCase`` 形式で書くが、 ``
 `   }
 ` }
 
+## コンポーネントへの変数渡し
 
+function Hello(props){
+  return(
+    <section>
+      <h1>こんにちわ {props.name} さん</h1>
+      <div>Helloコンポーネント</div>
+    </section>
+
+  );
+}
+
+render関数では ``   <Hello name="白井暁彦" />, `` という感じで受け渡す 。
