@@ -19,11 +19,7 @@
 const は代入不可能な変数、letは は代入可能な変数。コンパイルは通るがブラウザ内でエラーとして表示される。
 
 ## JSXのコメントアウト
-`    {/*JSXのコメントはブレスで囲ってから書く
-`      <div htmlFor="ImageBox">
-`         <img src="https://goo.gl/0kZocc" alt="Google" />
-`       </div>
-`     */}
+`    {/*JSXのコメントはブレスで囲ってから書く*/}
 
 
 ## HTMLとJSXの違い(予約名と例外)
@@ -46,6 +42,21 @@ JSXの変数名は基本はすべて ``lowerCamelCase`` 形式で書くが、 ``
 
 ``dangerouslySetInnerHTML={someHtml} ``
 
+# コンポーネント
 
+## ファンクショナル・コンポーネント
+
+関数を書くだけでコンポーネントになる、これを ``Functional Component`` もしくは ``Stateless Component`` と呼ぶ。
+
+## クラス・コンポーネント
+
+クラス定義を書く
+`  class Morning extends React.Component {
+`   render() {
+`     return (
+`       <section><h1>おはようございます</h1><p>Morning Component</p></section>
+`     )
+`   }
+` }
 
 

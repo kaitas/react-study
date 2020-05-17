@@ -13,8 +13,16 @@ function Hello(){
   );
 }
 
+//Class component
+class Morning extends React.Component {
+  render() {
+    return (
+      <section><h1>おはようございます</h1><p>Morning Component</p></section>
+    )
+  }
+}
 ReactDOM.render(
-  <Hello />,
+  <Morning />,
   document.getElementById('root')
 );
 
