@@ -72,3 +72,31 @@ function Hello(props){
 }
 
 render関数では ``   <Hello name="白井暁彦" />, `` という感じで受け渡す 。
+
+## Propsによるデータチェック
+
+コンポーネントに対するデータの受け渡しを ``Props`` と呼ぶ。
+ReactJS標準で型チェックの仕組みを持っている（[詳細](https://reactjs.org/docs/typechecking-with-proptypes.html)）。
+
+v15.5以降は別ライブラリになっているのでインポートする。
+
+`` import PropTypes from 'prop-types';``
+
+` Hello.propTypes = {
+`   name: PropTypes.string
+` }
+
+型チェック（この場合は`string`）を無視してコンポーネントに値を渡しても、（ビルド時にエラーは出ないが）検証時に `string` ではないことから、コンソールに `warning` が出る。
+
+値を必ず要求する場合、
+
+` Hello.propTypes = {
+`   name: PropTypes.string.isRequired
+` }
+
+省略時のデフォルト値を設定する場合（ライブラリの`import`は不要）。
+
+` Hello.defaultProps = {
+`   name : 'デフォルトの名前'
+` }
+

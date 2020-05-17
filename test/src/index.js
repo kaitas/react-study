@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import PropTypes from 'prop-types';
 
 function Hello(props){
   return(
@@ -13,7 +14,24 @@ function Hello(props){
 
   );
 }
+Hello.propTypes = {
+  name: PropTypes.string
+}
+Hello.defaultProps = {
+  name : 'デフォルトの名前'
+}
 
+function Message(){
+  return(
+    <section>
+      <Hello />
+      <Hello name={10} />
+      <Hello name={true} />
+      <div>Messageコンポーネント</div>
+    </section>
+
+  );
+}
 //Class component
 class Morning extends React.Component {
   render() {
@@ -23,7 +41,7 @@ class Morning extends React.Component {
   }
 }
 ReactDOM.render(
-  <Hello name="白井暁彦" />,
+  <Message />,
   document.getElementById('root')
 );
 
